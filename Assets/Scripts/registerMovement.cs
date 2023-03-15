@@ -9,6 +9,9 @@ using UnityEngine;
 
 public class registerMovement : MonoBehaviour
 {
+    public int run_id;
+    public int exercise_id;
+    public int try_id;
     float xPosR;
     float yPosR;
     float zPosR;
@@ -30,14 +33,20 @@ public class registerMovement : MonoBehaviour
     float startTime;
     static string filePath;
     StreamWriter writer;
-        
+
+    public void setExerciseID(int e_id, int t_id)
+    {
+        exercise_id = e_id;
+        try_id = t_id;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         startTime = DateTime.Now.Hour * 60 * 60 * 60 + DateTime.Now.Minute * 60 * 1000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
         filePath = Application.dataPath + "/CSV/QuestController_" + startTime + ".csv";
         writer = new StreamWriter(filePath);
-        writer.WriteLine("time,r_id,r_xpos,r_ypos,r_zpos,r_speed,r_acceleration,l_xpos,l_ypos,l_zpos,l_speed,l_acceleration");
+        writer.WriteLine("time,r_id,r_xpos,r_ypos,r_zpos,r_speed,r_acceleration,l_xpos,l_ypos,l_zpos,l_speed,l_acceleration,");
         writer.Flush();
         lastposition_l = leftHand.transform.position;
         lastposition_r = rightHand.transform.position;
@@ -77,4 +86,6 @@ public class registerMovement : MonoBehaviour
         lastposition_l = leftHand.transform.position;
         lastposition_r = rightHand.transform.position;
     }
+
+    
 }
