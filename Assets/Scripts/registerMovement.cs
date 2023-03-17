@@ -9,7 +9,6 @@ using UnityEngine;
 
 public class registerMovement : MonoBehaviour
 {
-    public int run_id;
     public int exercise_id;
     public int try_id;
     float xPosR;
@@ -44,7 +43,7 @@ public class registerMovement : MonoBehaviour
     void Start()
     {
         startTime = DateTime.Now.Hour * 60 * 60 * 60 + DateTime.Now.Minute * 60 * 1000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
-        filePath = Application.dataPath + "/CSV/QuestController_" + startTime + ".csv";
+        filePath = Application.dataPath + "/CSV/QuestController_" + GlobalVarManager.globalRunID + ".csv";
         writer = new StreamWriter(filePath);
         writer.WriteLine("time,r_id,r_xpos,r_ypos,r_zpos,r_speed,r_acceleration,l_xpos,l_ypos,l_zpos,l_speed,l_acceleration,");
         writer.Flush();
@@ -55,12 +54,12 @@ public class registerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Updating DB");
+        // Debug.Log("Updating DB");
         DateTime dt = DateTime.Now;
         float time = dt.Hour * 60 * 60 * 60 + dt.Minute * 60 * 1000 + dt.Second * 1000 + dt.Millisecond - startTime;
-        print(dt);
-        print(startTime);
-        int r_id = 0;
+        // print(dt);
+        // print(startTime);
+        int r_id = GlobalVarManager.globalRunID;
 
         xPosL = leftHand.transform.position.x;
         yPosL = leftHand.transform.position.y;
