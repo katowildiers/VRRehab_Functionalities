@@ -18,6 +18,24 @@ public class GlobalVarManager : MonoBehaviour
         tryID= 0;
     }
 
+    public void setRedApple()
+    {
+        exerciseID = 0;
+        tryID = 0;
+    }
+
+    public void setGreenApple()
+    {
+        exerciseID = 0;
+        tryID = 1;
+    }
+
+    public void setOrangeApple()
+    {
+        exerciseID = 0;
+        tryID = 2;
+    }
+
     // Update is called once per frame
     void Update()
     {

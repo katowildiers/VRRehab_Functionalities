@@ -60,6 +60,8 @@ public class registerMovement : MonoBehaviour
         // print(dt);
         // print(startTime);
         int r_id = GlobalVarManager.globalRunID;
+        int e_id = GlobalVarManager.exerciseID;
+        int t_id = GlobalVarManager.tryID;
 
         xPosL = leftHand.transform.position.x;
         yPosL = leftHand.transform.position.y;
@@ -79,12 +81,10 @@ public class registerMovement : MonoBehaviour
         lAcceleration = (rSpeed - lastVelocity_r) / Time.fixedDeltaTime;
         lastVelocity_r = rSpeed;
 
-        writer.WriteLine(time + "," + r_id + "," + xPosR + "," + yPosR + "," + zPosR + "," + rSpeed + "," + rAcceleration + "," + xPosL + "," + yPosL + "," + zPosL + "," + lSpeed + "," + lAcceleration);
+        writer.WriteLine(time + "," + r_id + "," + xPosR + "," + yPosR + "," + zPosR + "," + rSpeed + "," + rAcceleration + "," + xPosL + "," + yPosL + "," + zPosL + "," + lSpeed + "," + lAcceleration + "," e_id + ","+t_id);
         writer.Flush();
 
         lastposition_l = leftHand.transform.position;
         lastposition_r = rightHand.transform.position;
     }
-
-    
 }
