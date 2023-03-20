@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using EzySlice;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,5 @@ public class SliceListener : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         slicer.isTouched = true;
-        Debug.Log("Touched Something");
     }
 }

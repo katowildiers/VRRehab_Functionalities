@@ -81,7 +81,7 @@ public class registerMovement : MonoBehaviour
         lAcceleration = (rSpeed - lastVelocity_r) / Time.fixedDeltaTime;
         lastVelocity_r = rSpeed;
 
-        writer.WriteLine(time + "," + r_id + "," + xPosR + "," + yPosR + "," + zPosR + "," + rSpeed + "," + rAcceleration + "," + xPosL + "," + yPosL + "," + zPosL + "," + lSpeed + "," + lAcceleration + "," e_id + ","+t_id);
+        writer.WriteLine(time + "," + r_id + "," + xPosR + "," + yPosR + "," + zPosR + "," + rSpeed + "," + rAcceleration + "," + xPosL + "," + yPosL + "," + zPosL + "," + lSpeed + "," + lAcceleration + "," + e_id + ","+t_id);
         writer.Flush();
 
         lastposition_l = leftHand.transform.position;
