@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEditor;
+using UnityEngine.Networking;
 
 public class manager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class manager : MonoBehaviour
     public TMP_InputField firstName;
     public TMP_InputField lastName;
     string CreateUserURL = "http://localhost/thesis/insertUser.php";
+    string getUserIDURL = "http://localhost/thesis/userData.php";
 
     public void login()
     {
@@ -23,10 +25,15 @@ public class manager : MonoBehaviour
 
     public void register()
     {
-        username = inputField.text;
+        username = inputField.text; 
         string fName = firstName.text;
         string lName = lastName.text;
         CreateUser(username, fName, lName);
+    }
+
+    public void getUID()
+    {
+        StartCoroutine(getUserID());
     }
 
     public void CreateUser(string username, string firstName, string lastName)
@@ -35,7 +42,33 @@ public class manager : MonoBehaviour
         form.AddField("usernamePost", username);
         form.AddField("firstNamePost", firstName);
         form.AddField("lastNamePost", lastName);
-        print(form);
         WWW www = new WWW(CreateUserURL, form);
+    }
+
+    public IEnumerator getUserID()
+    {
+        Debug.Log("Entered the getUserID function");
+        string username = inputField.text;
+        WWWForm form = new WWWForm();
+        form.AddField("usernamePost", username);
+
+
+        UnityWebRequest www = UnityWebRequest.Post(getUserIDURL, form);
+
+        www.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+            Debug.Log(form.data);
+        }
+        else
+        {
+            Debug.Log("Post request complete!" + " Response Code: " + www.responseCode);
+            string responseText = www.downloadHandler.text;
+            Debug.Log("Response Text:" + responseText);
+        }
     }
 }
