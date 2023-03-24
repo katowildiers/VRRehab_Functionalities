@@ -32,25 +32,5 @@ public class GlobalVarManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("testtest");
-        Debug.Log(globalUserID);
-    }
-
-    public void setRedApple()
-    {
-        exerciseID = 0;
-        tryID = 0;
-    }
-
-    public void setGreenApple()
-    {
-        exerciseID = 0;
-        tryID = 1;
-    }
-
-    public void setOrangeApple()
-    {
-        exerciseID = 0;
-        tryID = 2;
     }
 }

@@ -4157,6 +4157,18 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 996982859}
+        m_TargetAssemblyTypeName: calibrationValues, Assembly-CSharp
+        m_MethodName: setGreenApple
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 996982857}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -5151,6 +5163,18 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 996982859}
+        m_TargetAssemblyTypeName: calibrationValues, Assembly-CSharp
+        m_MethodName: setRedApple
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 996982857}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -6222,10 +6246,10 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 996982857}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 996982859}
+        m_TargetAssemblyTypeName: calibrationValues, Assembly-CSharp
+        m_MethodName: setOrangeApple
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6234,13 +6258,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 996982856}
+      - m_Target: {fileID: 996982857}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6923,13 +6947,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996982856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9c4b5a3048b454d9ea4671a82ebc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exercise_id: 0
-  try_id: 0
   lastposition_r: {x: 0, y: 0, z: 0}
   lastposition_l: {x: 0, y: 0, z: 0}
   rightHand: {fileID: 389264907}
@@ -7097,6 +7119,18 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 996982859}
+        m_TargetAssemblyTypeName: calibrationValues, Assembly-CSharp
+        m_MethodName: setRedAppleRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 996982857}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -7885,6 +7919,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coffeecup
       objectReference: {fileID: 0}
+    - target: {fileID: 4539358516929561661, guid: 29e4c4f9364658346b148d054660b7f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4539358516929665053, guid: 29e4c4f9364658346b148d054660b7f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -8312,7 +8351,7 @@ Camera:
   m_GameObject: {fileID: 1421110660}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -8723,7 +8762,7 @@ Transform:
   m_GameObject: {fileID: 1531623164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 242.03897, y: 2, z: 169.16028}
+  m_LocalScale: {x: 0.973392, y: 1.44494, z: 1.3133008}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -10025,6 +10064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DrinkingGlass_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441611114093278921, guid: 8dfa0d45cd834394f8c62eec3b88c8c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2352119061080290073, guid: 8dfa0d45cd834394f8c62eec3b88c8c4, type: 3}
