@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/KitchenScene.unity
+    guid: a0eb46bb45bc2d14fbf05194f9258b78
+  - enabled: 1
+    path: Assets/Scenes/ToolshedScene.unity
+    guid: 9ae2002604f90cd4f8c814c08b33d8a9
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9bc0e1680764c154985d75e14394b292,
       type: 2}

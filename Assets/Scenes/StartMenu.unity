@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.56650126, g: 0.56538945, b: 0.56650126, a: 1}
+  m_IndirectSpecularColor: {r: 0.5664077, g: 0.5652003, b: 0.5664077, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2640,7 +2640,6 @@ GameObject:
   m_Component:
   - component: {fileID: 604676395}
   - component: {fileID: 604676394}
-  - component: {fileID: 604676393}
   - component: {fileID: 604676396}
   m_Layer: 0
   m_Name: DatabaseManager
@@ -2649,21 +2648,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &604676393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604676392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed103be2160d9ce40a0231ae6e4a4325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputUserName: 
-  inputFirstName: 
-  inputLastName: 
 --- !u!114 &604676394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,10 +2661,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   username: 
-  inputField: {fileID: 0}
-  LoginCanvas: {fileID: 0}
-  firstName: {fileID: 0}
-  lastName: {fileID: 0}
+  inputField: {fileID: 1718515282}
+  LoginCanvas: {fileID: 889719541}
+  firstName: {fileID: 1356474894}
+  lastName: {fileID: 1120082171}
 --- !u!4 &604676395
 Transform:
   m_ObjectHideFlags: 0
@@ -3925,7 +3909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &889719542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6095,13 +6079,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 604676394}
+        m_TargetAssemblyTypeName: manager, Assembly-CSharp
+        m_MethodName: getUID
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8334,7 +8318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2085454734
 RectTransform:
   m_ObjectHideFlags: 0
