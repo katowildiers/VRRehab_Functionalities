@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Networking;
 public class calibrationValues : MonoBehaviour
 {
     public GameObject XROrigin;
@@ -73,7 +74,7 @@ public class calibrationValues : MonoBehaviour
         if (ignorefirstr)
         {
             GlobalVarManager.r_left_range = r_left.transform.position.x - r_leftStart;
-            GlobalVarManager.r_front_range = r_front.transform.position.z - r_frontStart;
+            GlobalVarManager.r_front_range = r_frontStart - r_front.transform.position.z;
             GlobalVarManager.r_right_range = r_rightStart - r_right.transform.position.x;
             GlobalVarManager.r_up_range = r_up.transform.position.y - r_upStart;
             rightHand.isTrigger= true;
@@ -83,16 +84,52 @@ public class calibrationValues : MonoBehaviour
             bowl.transform.Translate(0, 0, -GlobalVarManager.l_up_range);
 
             XROrigin.transform.position = new Vector3(-3.65f, 0.01f, -4.139f);
+            uploadRunData();
         }
         else
         {
             ignorefirstr = true;
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void uploadRunData()
     {
-        
+        WWWForm form = new WWWForm();
+        form.AddField("runidPost", GlobalVarManager.globalRunID);
+        form.AddField("useridPost", GlobalVarManager.globalUserID);
+        form.AddField("controllerPost", "oculus");
+        form.AddField("lRangeLeft", GlobalVarManager.l_left_range.ToString());
+        form.AddField("lRangeRight", GlobalVarManager.l_right_range.ToString());
+        form.AddField("lRangeFront", GlobalVarManager.l_front_range.ToString());
+        form.AddField("lRangeUp", GlobalVarManager.l_up_range.ToString());
+        form.AddField("rRangeLeft", GlobalVarManager.r_left_range.ToString());
+        form.AddField("rRangeRight", GlobalVarManager.r_right_range.ToString());
+        form.AddField("rRangeFront", GlobalVarManager.r_front_range.ToString());
+        form.AddField("rRangeUp", GlobalVarManager.r_up_range.ToString());
+
+        WWW www = new WWW("http://localhost/thesis/insertRun.php", form);
+    }
+
+    public void setRedApple()
+    {
+        GlobalVarManager.exerciseID = 0;
+        GlobalVarManager.tryID = 5;
+    }
+
+    public void setGreenApple()
+    {
+        GlobalVarManager.exerciseID = 0;
+        GlobalVarManager.tryID = 6;
+    }
+
+    public void setOrangeApple()
+    {
+        GlobalVarManager.exerciseID = 0;
+        GlobalVarManager.tryID = 7;
+    }
+
+    public void setRedAppleRight()
+    {
+        GlobalVarManager.exerciseID = 0;
+        GlobalVarManager.tryID = 8;
     }
 }

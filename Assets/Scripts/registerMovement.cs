@@ -6,11 +6,11 @@ using System.Text;
 using System.IO;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class registerMovement : MonoBehaviour
 {
-    public int exercise_id;
-    public int try_id;
     float xPosR;
     float yPosR;
     float zPosR;
@@ -32,12 +32,7 @@ public class registerMovement : MonoBehaviour
     float startTime;
     static string filePath;
     StreamWriter writer;
-
-    public void setExerciseID(int e_id, int t_id)
-    {
-        exercise_id = e_id;
-        try_id = t_id;
-    }
+    string dataBaseURL = "http://localhost/thesis/insertData.php";
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +49,9 @@ public class registerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log("Updating DB");
         DateTime dt = DateTime.Now;
         float time = dt.Hour * 60 * 60 * 60 + dt.Minute * 60 * 1000 + dt.Second * 1000 + dt.Millisecond - startTime;
-        // print(dt);
-        // print(startTime);
+
         int r_id = GlobalVarManager.globalRunID;
         int e_id = GlobalVarManager.exerciseID;
         int t_id = GlobalVarManager.tryID;
@@ -81,10 +74,50 @@ public class registerMovement : MonoBehaviour
         lAcceleration = (rSpeed - lastVelocity_r) / Time.fixedDeltaTime;
         lastVelocity_r = rSpeed;
 
-        writer.WriteLine(time + "," + r_id + "," + xPosR + "," + yPosR + "," + zPosR + "," + rSpeed + "," + rAcceleration + "," + xPosL + "," + yPosL + "," + zPosL + "," + lSpeed + "," + lAcceleration + "," + e_id + ","+t_id);
+        writer.WriteLine(time + "," + r_id + "," + xPosR + "," + yPosR + "," + zPosR + "," + rSpeed + "," + rAcceleration + "," + xPosL + "," + yPosL + "," + zPosL + "," + lSpeed + "," + lAcceleration + "," + e_id + "," + t_id);
         writer.Flush();
 
         lastposition_l = leftHand.transform.position;
         lastposition_r = rightHand.transform.position;
+
+        StartCoroutine(InsertData(time, xPosR, yPosR, zPosR, xPosL, yPosL, zPosL, rSpeed, rAcceleration, lSpeed, lAcceleration));
     }
+    
+    public IEnumerator InsertData(float t, float xPosR, float yPosR, float zPosR, float xPosL, float yPosL, float zPosL, float rSpeed, float rAcc, float lSpeed, float lAcc)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("time", t.ToString());
+        form.AddField("runID", GlobalVarManager.globalRunID);
+        form.AddField("xPositionR", xPosR.ToString());
+        form.AddField("yPositionR", yPosR.ToString());
+        form.AddField("zPositionR", zPosR.ToString());
+        form.AddField("rSpeed", rSpeed.ToString());
+        form.AddField("rAcc", rAcc.ToString());
+
+        form.AddField("xPositionL", xPosL.ToString());
+        form.AddField("yPositionL", yPosL.ToString());
+        form.AddField("zPositionL", zPosL.ToString());
+        form.AddField("lSpeed", lSpeed.ToString());
+        form.AddField("lAcc", lAcc.ToString());
+
+        form.AddField("exerciseID", GlobalVarManager.exerciseID);
+        form.AddField("tryID", GlobalVarManager.tryID);
+        UnityWebRequest www = UnityWebRequest.Post(dataBaseURL, form);
+
+        www.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+            Debug.Log(form.data);
+        }
+        else
+        {
+            Debug.Log("Post request complete!" + " Response Code: " + www.responseCode);
+            string responseText = www.downloadHandler.text;
+            Debug.Log("Response Text:" + responseText);
+        }
+    }   
 }
