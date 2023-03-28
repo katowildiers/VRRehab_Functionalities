@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 17909884}
   - component: {fileID: 17909883}
   - component: {fileID: 17909882}
+  - component: {fileID: 17909886}
   m_Layer: 0
   m_Name: CoffeeSocket
   m_TagString: Untagged
@@ -446,6 +447,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17909880}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &17909886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17909880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16a99d9a43dc574d97a94fc4298b4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coffeecup: {fileID: 133792875}
 --- !u!1001 &21684069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1830,6 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPooring: 0
+  foam: {fileID: 1383580989}
 --- !u!114 &133792877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1961,7 +1976,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9088270703349142167, guid: 0a73716ae73e9a4468c96965d55b0bb2, type: 3}
 --- !u!65 &133792879
@@ -11239,7 +11254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708609150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.193, y: 2.8073545, z: 5.001}
+  m_LocalPosition: {x: -2.193, y: 2.6897, z: 5.001}
   m_LocalScale: {x: 0.04233788, y: 0.04233788, z: 0.04233788}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11295,7 +11310,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a21e556f942146c4998075d1b30d7735, type: 2}
+  - {fileID: 2100000, guid: 2fbdaf6467d4342e6861bed4e750a9bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12352,7 +12367,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9088270703349142167, guid: 0a73716ae73e9a4468c96965d55b0bb2, type: 3}
 --- !u!54 &808065627
@@ -19860,7 +19875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1383580990
 Transform:
   m_ObjectHideFlags: 0
@@ -19869,7 +19884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383580989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1378, z: -0}
+  m_LocalPosition: {x: 0, y: 0.0305, z: 0}
   m_LocalScale: {x: 0.27297863, y: 0.007769724, z: 0.27867982}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21990,33 +22005,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 133792876}
-        m_TargetAssemblyTypeName: AddFoam, Assembly-CSharp
-        m_MethodName: startPooring
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onReleased:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 133792876}
-        m_TargetAssemblyTypeName: AddFoam, Assembly-CSharp
-        m_MethodName: stopPooring
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!54 &1526037262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22032,7 +22023,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!23 &1526037263
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25179,6 +25170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coffeeParticles: {fileID: 154317497}
+  coffeeCup: {fileID: 133792875}
 --- !u!1 &1723049367
 GameObject:
   m_ObjectHideFlags: 0
@@ -28926,7 +28918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024266924}
   m_LocalRotation: {x: -0, y: 0.70374525, z: -0, w: 0.71045244}
-  m_LocalPosition: {x: -0.314, y: 0.08211139, z: -0.237}
+  m_LocalPosition: {x: -0.314, y: 0.047, z: -0.237}
   m_LocalScale: {x: 1.7106417, y: 1.710659, z: 1.5360283}
   m_ConstrainProportionsScale: 0
   m_Children:

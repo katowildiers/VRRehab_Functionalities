@@ -9,6 +9,7 @@ TagManager:
   - Fluid
   - Apple
   - CoffeeCup
+  - Marker
   layers:
   - Default
   - TransparentFX

@@ -12,21 +12,24 @@ public class AddFoam : MonoBehaviour
         isPooring = false;
     }
 
-    public void startPooring() { isPooring = true; }
-    public void stopPooring() { isPooring = false; }
+    public void startedPooring() { isPooring = true; }
+    public void stoppedPooring() { isPooring = false; }
 
 
     // Update is called once per frame
     public void raiseFoam()
     {
-        if (isPooring)
+        if(isPooring)
         {
+            Debug.Log("Filling cup");
             if (foam.transform.localPosition.y >= 0.14)
             {
-                //Implement that it stops pooring   
+                isPooring = false;
+                Debug.Log("Cup is full");
             }
-            foam.transform.localPosition += new Vector3(0, (float)0.001, 0 );
-            
+            foam.transform.localPosition += new Vector3(0, (float)0.0001, 0 );
+            foam.transform.localScale += new Vector3((float)0.00008,0, (float)0.00008);
+
         }
     }
 }
