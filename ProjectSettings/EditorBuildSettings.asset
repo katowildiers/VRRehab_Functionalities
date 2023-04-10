@@ -18,6 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ToolshedScene.unity
     guid: 9ae2002604f90cd4f8c814c08b33d8a9
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8a2a2f4e2e6c7ee499837158f3944981,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9bc0e1680764c154985d75e14394b292,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 13568646e53bfa9468affec51fac061e,
