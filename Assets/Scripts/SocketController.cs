@@ -16,10 +16,21 @@ public class SocketController : MonoBehaviour
     //Everytime something runs into the socket
     public void SocketCheck() 
     {
-        GameObject item = socket.selectTarget.gameObject;
-        if (item.CompareTag("Apple"))
+        IXRSelectInteractable item = socket.GetOldestInteractableSelected();
+
+        if (item.transform.CompareTag("Apple"))
         {
             gamePlay.GetComponent<FillTray>().appleDone = true;
+            Debug.Log("Apple is done");
+        }
+        else if (item.transform.CompareTag("CoffeeCup"))
+        {
+            gamePlay.GetComponent<FillTray>().coffeeDone = true;
+            Debug.Log("Coffeecup is done");
+        }
+        else
+        {
+            UnityEngine.Debug.Log("This is not on the list");
         }
     }
 }
