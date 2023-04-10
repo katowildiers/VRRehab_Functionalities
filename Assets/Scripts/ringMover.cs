@@ -32,14 +32,21 @@ public class ringMover : MonoBehaviour
     private IEnumerator Square()
     {
         Vector3 startPos = transform.localPosition;
-        Vector3 targetPos;
+        Vector3 targetPos = startPos + new Vector3(0f,5f,0f);
         float speed = 1f;
         bool finished= false;
+        
+        /*
         while (!finished)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(startPos, targetPos, speed * Time.deltaTime);
+            if(startPos == targetPos)
+            {
+                finished = true;
+            }
             // Hier dan een if statement die de target en startpos aanpast als ge aan een hoek bent. 
         }
+        */
         yield return new WaitForSeconds((float)0.005);       
     }
 
