@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Socket
+  m_Name: RingColor
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _SPECULAR_SETUP
@@ -123,8 +123,8 @@ Material:
     - _WorkflowMode: 0
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.1071111, g: 0.6741479, b: 0.7830189, a: 0.22745098}
-    - _Color: {r: 0.107111074, g: 0.67414784, b: 0.7830188, a: 0.22745098}
+    - _BaseColor: {r: 0.34060165, g: 0.77036285, b: 0.8113208, a: 0.35686275}
+    - _Color: {r: 0.34060162, g: 0.7703628, b: 0.8113207, a: 0.35686275}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
