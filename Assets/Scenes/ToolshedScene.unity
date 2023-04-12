@@ -10997,7 +10997,7 @@ MonoBehaviour:
   startSection: {fileID: 547406556}
   toHouseSection: {fileID: 1147650361}
   toSmileySection: {fileID: 704242592}
-  endSection: {fileID: 0}
+  endSection: {fileID: 1488455529}
 --- !u!65 &8164078558180755438
 BoxCollider:
   m_ObjectHideFlags: 0
